@@ -4,13 +4,13 @@ class Api::V1::MessagesController < ApplicationController
   end
 
   def create
-    message = Message.create(message_params)
+    message = Message.create(content: message_params[:content], author: message_params[:author], channel_id: message_params[:channel_id])
     render json: message
   end
 
   private
 
   def message_params
-    params.require(:message).permit(:author, :content)
+    params.require(:message).permit(:content, :author, :channel_id)
   end
 end
