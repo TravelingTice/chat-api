@@ -5,3 +5,13 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+# clean the db
+puts "Cleaning channels in database..."
+Channel.destroy_all
+
+# create 3 channels
+Channel.create(name: 'main')
+Channel.create(name: 'development')
+Channel.create(name: 'production')
+
+puts "Created #{Channel.count} channels"
