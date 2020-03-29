@@ -9,6 +9,12 @@ class Api::V1::ChannelsController < ApplicationController
     render json: channel
   end
 
+  def messages
+    channel = Channel.find(params[:id])
+
+    render json: Message.where(channel: channel)
+  end
+
   private
 
   def channel_params
